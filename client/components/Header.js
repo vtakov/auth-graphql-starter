@@ -6,7 +6,9 @@ import Logout from '../mutations/Logout.js';
 
 class Header extends React.Component {
     onLogoutClick() {
-        this.props.mutate({});
+        this.props.mutate({
+            refetchQueries: [{ query: CurrentUser }]
+        });
     }
 
     renderButtons() {
