@@ -6,7 +6,7 @@ import { Router, hashHistory, Route, IndexRoute } from 'react-router';
 import App from './components/App';
 
 const client = new ApolloClient({
-    dataIdFromObject: o => i.id
+    dataIdFromObject: o => o.id
 });
 
 const Root = () => {
