@@ -25,7 +25,7 @@ class SignupForm extends React.Component {
     render() {
         return (
             <div>
-                <h3>SignupForm</h3>
+                <h3>Sign Up</h3>
                 <AuthForm
                     onSubmit={this.onSubmit.bind(this)}
                     errors={this.state.errors}
