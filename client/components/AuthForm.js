@@ -32,6 +32,9 @@ class AuthForm extends React.Component {
                         />
                     </div>
                     <button className="btn">Submit</button>
+                    <div className="errors">
+                        {this.props.errors.map(error => <div key={error}>{error}</div>)}
+                    </div>
                 </form>
             </div>
         );
