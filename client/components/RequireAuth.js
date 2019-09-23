@@ -5,9 +5,12 @@ import CurrentUser from '../queries/CurrentUser.js';
 
 export default (WrappedComponent) => {
     class RequireAuth extends React.Component {
-        componentDidMount () {
-            if (!this.props.data.loading && !this.props.data.user) {
+        shouldComponentUpdate(nextProps) {
+            if (!nextProps.data.loading && !nextProps.data.user) {
                 hashHistory.push('/login');
+                return false;
+            } else {
+                return true;
             }
         }
 
