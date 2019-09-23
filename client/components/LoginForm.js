@@ -5,10 +5,20 @@ import { graphql } from 'react-apollo';
 import CurrentUser from '../queries/CurrentUser.js';
 
 class LoginForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            errors: []
+        }
+    }
+
     onSubmit({ email, password }) {
         this.props.mutate({
             variables: { email, password },
             refetchQueries: [{ query: CurrentUser }]
+        }).catch(res => {
+            const errors = res.graphQLErrors.map(error => error.message);
+
         });
     }
 
